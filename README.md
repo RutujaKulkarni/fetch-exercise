@@ -7,3 +7,7 @@ Running the application:
 4. URL for webservice : http://localhost:9090/pyramid/{input_string} e.g. http://localhost:9090/pyramid/banana
 5. URL will return true if the string is a pyramid, it will return false otherwise.
 
+
+The exercise is completed using Springboot, Java 8 and RESTful web APIs.
+
+
