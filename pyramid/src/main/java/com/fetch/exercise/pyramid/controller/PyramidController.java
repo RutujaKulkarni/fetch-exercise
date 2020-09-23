@@ -1,6 +1,7 @@
 package com.fetch.exercise.pyramid.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +19,13 @@ public class PyramidController {
 
 	@CrossOrigin("*")
 	@GetMapping(value = "/pyramid/{pyramid}", produces="application/json")
-	public Pyramid isPyramid(@PathVariable String pyramid) {
-		return pyramidService.isPyramid(pyramid);
+	public ResponseEntity<Pyramid> isPyramid(@PathVariable String pyramid) {
+		Pyramid p = pyramidService.isPyramid(pyramid);
+		if(p.getString() == null) {
+			return new ResponseEntity<Pyramid>(p, HttpStatus.LENGTH_REQUIRED);
+		}else {
+			return new ResponseEntity<Pyramid>(p, HttpStatus.OK);
+		}
 	}
 	
 }
