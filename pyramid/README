@@ -1,0 +1,3 @@
+1. Server port number: 9090
+2. URL for webservice : http://localhost:9090/pyramid/{input_string}
+3. URL will return true if the string is a pyramid, it will return false otherwise.
